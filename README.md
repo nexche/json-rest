@@ -33,7 +33,7 @@ use TanSandbox\JsonRest\Builder;
 $builder = new Builder() ;
 ```
 
-### Returning success response
+### Returning a success response
 ```php
 $data = array (
     'name' => 'Nithin',
@@ -84,7 +84,7 @@ $builder->setStatus(404)->send($data) ;
     }
 }
 ```
-### Advanced responses
+### Advanced response
 ```php
 $data = array (
     'name' => 'Nithin',
@@ -104,7 +104,7 @@ $builder->setMessage('Action completed')->setStatus(200)->send($data) ;
     "message": "Action completed"
 }
 ```
-### Method chaining with sendie() method
+### Method chaining ( using sendie() )
 ```php
 $builder->setName('Nithin')
     ->setSubject('English')
