@@ -104,7 +104,7 @@ $builder->setMessage('Action completed')->setStatus(200)->send($data) ;
     "message": "Action completed"
 }
 ```
-### Method chaining ( using sendie() )
+### Method chaining ( uses sendie() )
 ```php
 $builder->setName('Nithin')
     ->setSubject('English')
