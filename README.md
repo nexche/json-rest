@@ -106,7 +106,8 @@ Will produce
     "message": "Action completed"
 }
 ```
-### Method chaining ( uses sendie() )
+### Method chaining.
+New json member can be added using the setXXX methods. The sendie() method is to output the reponse and to die after that.
 ```php
 $builder->setName('Nithin')
     ->setSubject('English')
