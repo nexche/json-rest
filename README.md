@@ -42,7 +42,7 @@ $data = array (
 );
 $builder->ok($data) ;
 ```
-This will return 
+Will produce
 ```js
 {
     "status": true,
@@ -60,7 +60,7 @@ $data = array(
 );
 $builder->fail($data) ;
 ```
-This will return the following json
+Will produce
 ```js
 {
     "status": false,
@@ -76,6 +76,7 @@ $data = array(
 );
 $builder->setStatus(404)->send($data) ;
 ```
+Will produce
 ```js
 {
     "status": false,
@@ -93,6 +94,7 @@ $data = array (
 );
 $builder->setMessage('Action completed')->setStatus(200)->send($data) ;
 ```
+Will produce
 ```js
 {
     "status": false,
