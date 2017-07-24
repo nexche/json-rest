@@ -28,21 +28,13 @@ $ php composer.phar require tansandbox/json-rest
 ## Basic usages
 
 ### Creating object
-use TanSandbox\JsonRest\Builder;
-
-$builder = new Builder() ;
-
-### Return success 
 ```php
-/*
-{
-    "status": true,
-    "data": {
-        "name": "Nithin",
-        "subject": "English",
-        "mark": "90"
-    }
-}*/
+use TanSandbox\JsonRest\Builder;
+$builder = new Builder() ;
+```
+
+### Returning success response
+```php
 $data = array (
     'name' => 'Nithin',
     'subject' => 'English',
@@ -50,42 +42,58 @@ $data = array (
 );
 $builder->ok($data) ;
 ```
-
-### Return failure
+This will return 
+```js
+{
+    "status": true,
+    "data": {
+        "name": "Nithin",
+        "subject": "English",
+        "mark": "90"
+    }
+}
+```
+### Return a failure
 ```php
-/*
+$data = array(
+    'name' => 'Please provide a valid name'
+);
+$builder->fail($data) ;
+```
+This will return the following json
+```js
 {
     "status": false,
     "data": {
         "name": "Please provide a valid name"
     }
 }
-*/
-$data = array(
-    'name' => 'Please provide a valid name'
-);
-$builder->fail($data) ;
 ```
-
-### Return custom http status
+### Response with custom http status
 ```php
-/*
+$data = array(
+    'reply' => 'Resource not found.'
+);
+$builder->setStatus(404)->send($data) ;
+```
+```js
 {
     "status": false,
     "data": {
         "reply": "Resource not found."
     }
 }
-*/
-$data = array(
-    'reply' => 'Resource not found.'
-);
-$builder->setStatus(404)->send($data) ;
 ```
-
 ### Advanced responses
 ```php
-/* 
+$data = array (
+    'name' => 'Nithin',
+    'subject' => 'English',
+    'mark' => '90'
+);
+$builder->setMessage('Action completed')->setStatus(200)->send($data) ;
+```
+```js
 {
     "status": false,
     "data": {
@@ -95,18 +103,17 @@ $builder->setStatus(404)->send($data) ;
     },
     "message": "Action completed"
 }
-*/
-$data = array (
-    'name' => 'Nithin',
-    'subject' => 'English',
-    'mark' => '90'
-);
-$builder->setMessage('Action completed')->setStatus(200)->send($data) ;
 ```
-
-### Method chaining with sendie() "send and die"
+### Method chaining with sendie() method
 ```php
-/* 
+$builder->setName('Nithin')
+    ->setSubject('English')
+    ->setMark('90')
+    ->setCustomNotes('Student of ZF2')
+    ->sendie() ;
+```
+Will produce
+```js
 {
     "status": true,
     "message": "Action completed",
@@ -115,10 +122,4 @@ $builder->setMessage('Action completed')->setStatus(200)->send($data) ;
     "mark": "90",
     "customNotes": "Student of ZF2"
 }
-*/
-$builder->setName('Nithin')
-    ->setSubject('English')
-    ->setMark('90')
-    ->setCustomNotes('Student of ZF2')
-    ->sendie() ;
 ```
