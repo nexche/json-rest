@@ -17,14 +17,13 @@ namespace TanSandbox\JsonRest;
  *       "message": "Action completed"
  *   }
  *
- * Json response builder for zend framework 2. You can choose "ok()", "fail()" or "send()" method to return response.
- * ok() : will return data with 200 OK.
- * fail (): will return data with 500 Server Error.
+ * Json response builder for zend framework 2. You can choose "send()" or "sendie()" method to return response.
  * send() : you can set custom http status code using setStatus method.
+ * sendie() : send and die.
  * 
- * All methods begin with "set" can be chained together.
+ * All methods begin with "set" can be chained together. setStatus( 200 ) has a short function ok(), also setStatus(500) has alias fail()
  * It is allowed to call magic set function eg: setMyCustomVariable("My Value") is possible.
- *   $json->setSubject("English")->setMark("10")->ok() ;
+ *   $json->setSubject("English")->setMark("10")->ok()->send() ;
  * 
  * Note: A status field will be auto appended depending on the status code. Status true will be used if status belongs to 2xx code. Otherwise a false is returned.
  * The ok() will append a status "true" and "false" for fail method.
@@ -211,8 +210,8 @@ class Builder
     public function ok($data = null)
     {
         $this->lastStatus = true ;
-        $this->setStatus(200)->send($data) ;
-        return true ;
+        $this->setStatus(200);
+        return $this ;
     }
     /**
      * Return output with HTTP 500 Server Er
@@ -223,7 +222,7 @@ class Builder
     public function fail($data = null)
     {
         $this->lastStatus = false ;
-        $this->setStatus(500)->send($data) ;
-        return true ;
+        $this->setStatus(500) ;
+        return $this ;
     }
 }
