@@ -180,7 +180,7 @@ class Builder
      */
     public function sendie($data = null)
     {
-        $this->send();
+        $this->send($data);
         die;
     }
     /**
