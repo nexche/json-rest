@@ -3,7 +3,7 @@
     "description": "Json response builder.",
     "type": "library",
     "license": "BSD-3-Clause",
-    "version": "0.8.0",
+    "version": "0.8.2",
     "authors": [
         {
             "name": "nithin ta",
