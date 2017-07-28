@@ -204,10 +204,9 @@ class Builder
     /**
      * Return output with HTTP 200 OK.
      * 
-     * @param array $data
      * @return bool true always
      */
-    public function ok($data = null)
+    public function ok()
     {
         $this->lastStatus = true ;
         $this->setStatus(200);
@@ -216,10 +215,9 @@ class Builder
     /**
      * Return output with HTTP 500 Server Er
      * 
-     * @param array $data
      * @return bool true always
      */
-    public function fail($data = null)
+    public function fail()
     {
         $this->lastStatus = false ;
         $this->setStatus(500) ;
