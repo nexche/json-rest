@@ -40,7 +40,7 @@ $data = array (
     'subject' => 'English',
     'mark' => '90'
 );
-$builder->ok($data) ;
+$builder->ok()->send($data) ;
 ```
 Will produce
 ```js
@@ -58,7 +58,7 @@ Will produce
 $data = array(
     'name' => 'Please provide a valid name'
 );
-$builder->fail($data) ;
+$builder->fail()->send($data) ;
 ```
 Will produce
 ```js
