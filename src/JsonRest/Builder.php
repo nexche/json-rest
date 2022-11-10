@@ -1,6 +1,6 @@
 <?php
 
-namespace TanSandbox\JsonRest;
+namespace Nexche\JsonRest;
 
 /**
  * Basic json response builder.
