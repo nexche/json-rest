@@ -1,5 +1,5 @@
 {
-    "name": "tan-sandbox/json-rest",
+    "name": "nexche/json-rest",
     "description": "Json response builder.",
     "type": "library",
     "license": "BSD-3-Clause",
@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "nithin ta",
-            "email": "tan.sandbox@gmail.com"
+            "email": "nexche@gmail.com"
         }
     ],
     "minimum-stability": "beta",
@@ -16,7 +16,7 @@
         },
         "autoload": {
         "psr-4": {
-            "TanSandbox\\": "src/"
+            "Nexche\\": "src/"
         }
     }
 }
