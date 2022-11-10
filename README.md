@@ -10,7 +10,7 @@ Add to your composer.json or create a new composer.json:
 ```js
 {
     "require": {
-        "tansandbox/json-rest": "*"
+        "nexche/json-rest": "*"
     }
 }
 ```
@@ -22,14 +22,14 @@ $ php composer.phar install
 To include using compser require, run the following command from your project.
 
 ```sh
-$ php composer.phar require tansandbox/json-rest
+$ php composer.phar require nexche/json-rest
 ```
 
 ## Basic usages
 
 ### Creating object
 ```php
-use TanSandbox\JsonRest\Builder;
+use Nexche\JsonRest\Builder;
 $builder = new Builder() ;
 ```
 
