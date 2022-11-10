@@ -117,7 +117,7 @@ class Builder
                 }
             }
             else {
-                trigger_error('To set data please use one of the following method ok(), fail, send() or sendie().', E_USER_ERROR) ;                
+                trigger_error('To set data please use one of the following method ok(), fail(), send() or sendie().', E_USER_ERROR) ;                
                 return null ;
             }
         }
@@ -206,21 +206,21 @@ class Builder
      * 
      * @return bool true always
      */
-    public function ok()
+    public function ok($data = null)
     {
         $this->lastStatus = true ;
         $this->setStatus(200);
-        return $this ;
+        return $this->send($data) ;
     }
     /**
      * Return output with HTTP 500 Server Er
      * 
      * @return bool true always
      */
-    public function fail()
+    public function fail($data = null)
     {
         $this->lastStatus = false ;
         $this->setStatus(500) ;
-        return $this ;
+        return $this->send($data) ;
     }
 }
